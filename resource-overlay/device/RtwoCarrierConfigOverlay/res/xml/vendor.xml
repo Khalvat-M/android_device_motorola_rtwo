@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<carrier_config_list>
+    <!-- Irancell Configuration (MCC: 432, MNC: 35) for Moto X40 -->
+    <carrier_config mcc="432" mnc="35">
+        
+        <!-- 5G & VoNR Settings -->
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
+        <boolean name="vonr_setting_visibility_bool" value="true" />
+        <boolean name="show_5g_slice_icon_bool" value="true" />
+        <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
+        <int-array name="carrier_nr_availabilities_int_array" num="2">
+            <item value="1" /> <!-- NSA -->
+            <item value="2" /> <!-- SA -->
+        </int-array>
+
+        <!-- IMS / VoLTE Options -->
+        <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+        <boolean name="show_hd_audio_call_image_bool" value="true" />
+        <boolean name="display_hd_plus_icon_bool" value="true" />
+        <boolean name="display_in_call_notification_wifi_icon_bool" value="true" />
+        <boolean name="gsm_cdma_calls_can_be_hd_audio" value="true" />
+        <boolean name="wifi_calls_can_be_hd_audio" value="true" />
+        <boolean name="com.google.android.dialer.display_wifi_calling_button_bool" value="true" />
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_volte_show_switch_bool" value="true" />
+        <boolean name="carrier_default_volte_switch_on_bool" value="true" />
+        <boolean name="carrier_volte_provisioned_bool" value="true" />
+        <boolean name="carrier_ims_gba_required_bool" value="false" />
+        <boolean name="require_entitlement_checks_bool" value="false" />
+        <boolean name="show_ims_registration_status_bool" value="true" />
+        <boolean name="show_apn_setting_cdma_bool" value="true" />
+        <boolean name="enhanced_4g_lte_on_by_default_bool" value="true" />
+        <boolean name="editable_enhanced_4g_lte_bool" value="true" />
+        <boolean name="hide_enhanced_4g_lte_bool" value="false" />
+        <boolean name="carrier_allow_turnoff_ims_bool" value="true" />
+        <boolean name="use_ims_safety_dialog_bool" value="false" />
+        <boolean name="config_retry_sms_over_ims" value="true" />
+        <boolean name="hide_ims_apn_bool" value="false" />
+        <boolean name="carrier_supports_ss_over_ut_bool" value="true" />
+        <boolean name="strict_ut_requirement_bool" value="false" />
+        <int name="ims_conference_size_limit_int" value="5" />
+        <boolean name="is_ims_conference_size_enforced_bool" value="true" />
+
+        <!-- VoWiFi Configuration -->
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="carrier_default_wfc_ims_enabled_bool" value="true" />
+        <int name="carrier_default_wfc_ims_mode_int" value="1" /> <!-- 1: Wi-Fi Preferred -->
+        <boolean name="carrier_default_wfc_ims_roaming_enabled_bool" value="true" />
+        <boolean name="editable_wfc_mode_bool" value="true" />
+        <boolean name="editable_wfc_roaming_mode_bool" value="true" />
+        <boolean name="carrier_wfc_supports_wifi_only_bool" value="true" />
+        <boolean name="carrier_wfc_supports_wifi_calling_in_airplane_mode_bool" value="true" />
+
+        <!-- Motorola Status Bar Icons & Controls -->
+        <boolean name="moto_wifi_cellular_switch_enabled_bool" value="true" />
+        <boolean name="moto_carrier_specific_wfc_req_bool" value="true" />
+        <boolean name="moto_show_volte_calling_icon_in_status_bar_bool" value="true" />
+        <boolean name="moto_show_vonr_calling_icon_in_status_bar_bool" value="true" />
+        <boolean name="show_wifi_calling_icon_in_status_bar_bool" value="true" />
+        
+        <string-array name="moto_operator_name_replace_string_array" num="2">
+            <item value="HOME|Irancell" />
+            <item value="ROAMING:DOMESTIC|Irancell" />
+        </string-array>
+
+        <!-- Verified Motorola Qualcomm Custom Block -->
+        <string name="moto_custom_config_string"><![CDATA[
+            <moto_config channel_id="irancell">
+                <boolean name="ims.ims_single_registration_required_bool" value="false" />
+            </moto_config>
+            <moto_config platform="qcom">
+                <string name="config_ims_mmtel_package_override_string">org.codeaurora.ims</string>
+            </moto_config>
+        ]]></string>
+
+        <!-- APN Management & Essential Retry Rules -->
+        <boolean name="allow_adding_apns_bool" value="true" />
+        <boolean name="apn_expand_bool" value="true" />
+
+        <string-array name="telephony_data_setup_retry_rules_string_array" num="3">
+            <item value="capabilities=eims, retry_interval=1000, maximum_retries=20" />
+            <item value="capabilities=mms|supl|cbs, retry_interval=2000" />
+            <item value="capabilities=internet|enterprise|dun|ims|fota, retry_interval=2500|3000|5000|10000|15000|20000|40000|60000|120000|240000|600000|1200000|1800000, maximum_retries=20" />
+        </string-array>
+
+    </carrier_config>
+</carrier_config_list>

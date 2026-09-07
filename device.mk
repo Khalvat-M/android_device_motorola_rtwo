@@ -29,6 +29,7 @@ PRODUCT_PACKAGES += \
     FrameworksResDevice \
     LineageSystemUIDevice \
     ProductFrameworksResDevice \
+    RtwoCarrierConfigOverlay \
     SettingsResDevice \
     SystemUIResDevice
 
@@ -45,6 +46,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/usecaseKvManager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usecaseKvManager.xml \
     $(LOCAL_PATH)/configs/audio/usecaseKvManager_prc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usecaseKvManager_prc.xml \
     $(LOCAL_PATH)/configs/audio/usecaseKvManager_tmo.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usecaseKvManager_tmo.xml
+
+# Carriers Config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/carriers/s43235.pb:$(TARGET_COPY_OUT_PRODUCT)/etc/CarrierSettings/s43235.pb
 
 # Dex-pre-opt exclusions
 $(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
